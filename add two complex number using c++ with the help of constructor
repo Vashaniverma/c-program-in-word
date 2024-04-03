@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+class complex
+{
+    private:
+        int r;
+        int i;
+    public:
+        complex()
+        {
+            r=0;
+            i=0;
+        }
+        complex(int x, int y)
+        {
+            r=x;
+            i=y;
+        }
+        complex operator+(complex c)
+        {
+            complex t;
+            t.r= r+ c.r;
+            t.i=i+ c.i;
+            return t;
+        }
+        void show()
+        {
+            cout<<r<<"+i"<<i<<endl;
+        }
+};
+int main()
+{   
+    complex c1(2,3),c2(4,5),c3;
+    c3=c1+c2;
+    c3.show();
+    return 0;
+}
