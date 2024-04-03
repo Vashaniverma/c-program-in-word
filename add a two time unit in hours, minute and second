@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+class time
+{
+    private:
+        int h;
+        int m;
+        int s;
+    public:
+        time()
+        {
+            h=0;
+            m=0;
+            s=0;
+        }
+        time(int x,int y, int z)
+        {
+            h=x;
+            m=y;
+            s=z;
+        }
+        time operator+(time t)
+        {
+            time a;
+
+            a.h=h+t.h;
+
+            a.m=m+t.m;
+
+            a.s=s+t.s;
+            if(a.s>=60)
+            {
+                int s;
+                s=a.s/60;
+                a.m=a.m+s;
+                a.s=a.s-(s*60);
+            }
+            if(a.m>=60)
+            {
+                int e;
+                e=a.m/60;
+                a.h=a.h+e;
+                a.m=a.m-(e*60);
+            }
+            return a;
+        }
+        void show()
+        {
+            cout<<h<<":"<<m<<":"<<s<<endl;
+        }
+};
+int main()
+{
+    time c1(3,345,454),c2(2,35,455),c3;
+    c3=c1+c2;
+    c3.show();
+    return 0;
+}
